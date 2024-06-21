@@ -28,7 +28,7 @@ export default function MyOrdersPage() {
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">მეილი</Label>
             <Input type="email" required name="email" id="email" />
             {data.error && <div className="text-destructive">{data.error}</div>}
           </div>
