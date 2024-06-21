@@ -31,7 +31,7 @@ function getUsers() {
 export default function UsersPage() {
   return (
     <>
-      <PageHeader>Customers</PageHeader>
+      <PageHeader>მომხმარებლები</PageHeader>
       <UsersTable />
     </>
   );
@@ -40,17 +40,17 @@ export default function UsersPage() {
 async function UsersTable() {
   const users = await getUsers();
 
-  if (users.length === 0) return <p>No customers found</p>;
+  if (users.length === 0) return <p>მომხმარებლები არ მოიძებნა</p>;
 
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Email</TableHead>
-          <TableHead>Orders</TableHead>
-          <TableHead>Value</TableHead>
+          <TableHead>მეილი</TableHead>
+          <TableHead>გაყიდვათა ოდენობა</TableHead>
+          <TableHead>ფასი</TableHead>
           <TableHead className="w-0">
-            <span className="sr-only">Actions</span>
+            <span className="sr-only">მოქმედებები</span>
           </TableHead>
         </TableRow>
       </TableHeader>
@@ -69,7 +69,7 @@ async function UsersTable() {
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <MoreVertical />
-                  <span className="sr-only">Actions</span>
+                  <span className="sr-only">მოქმედებები</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DeleteDropDownItem id={user.id} />

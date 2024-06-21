@@ -31,10 +31,13 @@ export default function HomePage() {
   return (
     <main className="space-y-12">
       <ProductGridSection
-        title="Most Popular"
+        title="პოპულარულები"
         productsFetcher={getMostPopularProducts}
       />
-      <ProductGridSection title="Newest" productsFetcher={getNewestProducts} />
+      <ProductGridSection
+        title="უახლესი პროდუქტები"
+        productsFetcher={getNewestProducts}
+      />
     </main>
   );
 }
@@ -54,7 +57,7 @@ function ProductGridSection({
         <h2 className="text-3xl font-bold">{title}</h2>
         <Button variant="outline" asChild>
           <Link href="/products" className="space-x-2">
-            <span>View All</span>
+            <span>ნახეთ ყველა</span>
             <ArrowRight className="size-4" />
           </Link>
         </Button>

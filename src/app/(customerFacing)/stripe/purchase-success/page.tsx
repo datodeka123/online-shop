@@ -28,7 +28,7 @@ export default async function SuccessPage({
   return (
     <div className="max-w-5xl w-full mx-auto space-y-8">
       <h1 className="text-4xl font-bold">
-        {isSuccess ? "Success!" : "Error!"}
+        {isSuccess ? "წარმატებით დასრულდა!" : "დაფიქსირდა შეცდომა!"}
       </h1>
       <div className="flex gap-4 items-center">
         <div className="aspect-video flex-shrink-0 w-1/3 relative">
@@ -54,10 +54,12 @@ export default async function SuccessPage({
                   product.id
                 )}`}
               >
-                Download
+                ჩამოტვირთვა
               </a>
             ) : (
-              <Link href={`/products/${product.id}/purchase`}>Try Again</Link>
+              <Link href={`/products/${product.id}/purchase`}>
+                ცადეთ ხელახლა
+              </Link>
             )}
           </Button>
         </div>

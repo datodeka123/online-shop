@@ -28,9 +28,9 @@ export default function AdminProductsPage() {
   return (
     <>
       <div className="flex justify-between items-center gap-4">
-        <PageHeader>Products</PageHeader>
+        <PageHeader>პროდუქტები</PageHeader>
         <Button asChild>
-          <Link href="/admin/products/new">Add Product</Link>
+          <Link href="/admin/products/new">დაამატეთ პროდუქტი</Link>
         </Button>
       </div>
       <ProductsTable />
@@ -50,20 +50,20 @@ async function ProductsTable() {
     orderBy: { name: "asc" },
   });
 
-  if (products.length === 0) return <p>No products found</p>;
+  if (products.length === 0) return <p>პროდუქტები ვერ მოიძებნა</p>;
 
   return (
     <Table>
       <TableHeader>
         <TableRow>
           <TableHead className="w-0">
-            <span className="sr-only">Available For Purchase</span>
+            <span className="sr-only">ხელმისაწვდომია გაყიდვისთვის</span>
           </TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Price</TableHead>
-          <TableHead>Orders</TableHead>
+          <TableHead>სახელი</TableHead>
+          <TableHead>ფასი</TableHead>
+          <TableHead>გაყიდვათა ოდენობა</TableHead>
           <TableHead className="w-0">
-            <span className="sr-only">Actions</span>
+            <span className="sr-only">მოქმედებები</span>
           </TableHead>
         </TableRow>
       </TableHeader>
@@ -73,12 +73,12 @@ async function ProductsTable() {
             <TableCell>
               {product.isAvailableForPurchase ? (
                 <>
-                  <span className="sr-only">Available</span>
+                  <span className="sr-only">ხელმისაწვდომია</span>
                   <CheckCircle2 />
                 </>
               ) : (
                 <>
-                  <span className="sr-only">Unavailable</span>
+                  <span className="sr-only">არაა ხელმისაწვდომი</span>
                   <XCircle className="stroke-destructive" />
                 </>
               )}
@@ -90,17 +90,17 @@ async function ProductsTable() {
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <MoreVertical />
-                  <span className="sr-only">Actions</span>
+                  <span className="sr-only">მოქმედებები</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem asChild>
                     <a download href={`/admin/products/${product.id}/download`}>
-                      Download
+                      ჩამოტვირთვა
                     </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href={`/admin/products/${product.id}/edit`}>
-                      Edit
+                      ჩასწორება
                     </Link>
                   </DropdownMenuItem>
                   <ActiveToggleDropdownItem

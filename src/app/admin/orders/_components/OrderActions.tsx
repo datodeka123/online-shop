@@ -20,7 +20,7 @@ export function DeleteDropDownItem({ id }: { id: string }) {
         })
       }
     >
-      Delete
+      წაშლა
     </DropdownMenuItem>
   );
 }

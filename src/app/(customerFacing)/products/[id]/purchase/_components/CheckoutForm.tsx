@@ -90,7 +90,7 @@ function Form({
 
     if (orderExists) {
       setErrorMessage(
-        "You have already purchased this product. Try downloading it from the My Orders page"
+        "თქვენ უკვე შეძენილი გაქვთ ეს პროდუქტი. ცადეთ გადმოწეროთ ის ჩემი შეკვეთების გვერდიდან"
       );
       setIsLoading(false);
       return;
@@ -117,7 +117,7 @@ function Form({
     <form onSubmit={handleSubmit}>
       <Card>
         <CardHeader>
-          <CardTitle>Checkout</CardTitle>
+          <CardTitle>შესყიდვა</CardTitle>
           {errorMessage && (
             <CardDescription className="text-destructive">
               {errorMessage}
@@ -139,8 +139,8 @@ function Form({
             disabled={stripe == null || elements == null || isLoading}
           >
             {isLoading
-              ? "Purchasing..."
-              : `Purchase - ${formatCurrency(priceInCents / 100)}`}
+              ? "ხორციელდება შეძენა..."
+              : `შეიძინეთ - ${formatCurrency(priceInCents / 100)}`}
           </Button>
         </CardFooter>
       </Card>

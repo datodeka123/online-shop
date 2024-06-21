@@ -32,7 +32,7 @@ function getOrders() {
 export default function OrdersPage() {
   return (
     <>
-      <PageHeader>Sales</PageHeader>
+      <PageHeader>გაყიდვები</PageHeader>
       <OrdersTable />
     </>
   );
@@ -41,17 +41,17 @@ export default function OrdersPage() {
 async function OrdersTable() {
   const orders = await getOrders();
 
-  if (orders.length === 0) return <p>No sales found</p>;
+  if (orders.length === 0) return <p>გაყიდვები ვერ მოიძებნა</p>;
 
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Product</TableHead>
-          <TableHead>Customer</TableHead>
-          <TableHead>Price Paid</TableHead>
+          <TableHead>პროდუქტი</TableHead>
+          <TableHead>მომხმარებელი</TableHead>
+          <TableHead>გადახდილი თანხა</TableHead>
           <TableHead className="w-0">
-            <span className="sr-only">Actions</span>
+            <span className="sr-only">მოქმედებები</span>
           </TableHead>
         </TableRow>
       </TableHeader>
@@ -67,7 +67,7 @@ async function OrdersTable() {
               <DropdownMenu>
                 <DropdownMenuTrigger>
                   <MoreVertical />
-                  <span className="sr-only">Actions</span>
+                  <span className="sr-only">მოქმედებები</span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DeleteDropDownItem id={order.id} />

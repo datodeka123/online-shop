@@ -27,7 +27,9 @@ export function ActiveToggleDropdownItem({
         });
       }}
     >
-      {isAvailableForPurchase ? "Deactivate" : "Activate"}
+      {isAvailableForPurchase
+        ? "რეალიზაციიდან ამოღება"
+        : "რეალიზაციაში ჩაშვება"}
     </DropdownMenuItem>
   );
 }
@@ -52,7 +54,7 @@ export function DeleteDropdownItem({
         });
       }}
     >
-      Delete
+      წაშლა
     </DropdownMenuItem>
   );
 }

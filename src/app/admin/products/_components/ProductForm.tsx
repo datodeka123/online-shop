@@ -23,7 +23,7 @@ export function ProductForm({ product }: { product?: Product | null }) {
   return (
     <form action={action} className="space-y-8">
       <div className="space-y-2">
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">სახელი</Label>
         <Input
           type="text"
           id="name"
@@ -34,7 +34,7 @@ export function ProductForm({ product }: { product?: Product | null }) {
         {error.name && <div className="text-destructive">{error.name}</div>}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="priceInCents">Price In Cents</Label>
+        <Label htmlFor="priceInCents">ფასი ცენტებში</Label>
         <Input
           type="number"
           id="priceInCents"
@@ -51,7 +51,7 @@ export function ProductForm({ product }: { product?: Product | null }) {
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="description">Description</Label>
+        <Label htmlFor="description">აღწერა</Label>
         <Textarea
           id="description"
           name="description"
@@ -63,7 +63,7 @@ export function ProductForm({ product }: { product?: Product | null }) {
         )}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="file">File</Label>
+        <Label htmlFor="file">გასაყიდი ფაილი</Label>
         <Input type="file" id="file" name="file" required={product == null} />
         {product != null && (
           <div className="text-muted-foreground">{product.filePath}</div>
@@ -71,7 +71,7 @@ export function ProductForm({ product }: { product?: Product | null }) {
         {error.file && <div className="text-destructive">{error.file}</div>}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="image">Image</Label>
+        <Label htmlFor="image">გარე ფოტო</Label>
         <Input type="file" id="image" name="image" required={product == null} />
         {product != null && (
           <Image
@@ -93,7 +93,7 @@ function SubmitButton() {
 
   return (
     <Button type="submit" disabled={pending}>
-      {pending ? "Saving..." : "Save"}
+      {pending ? "ინახება..." : "შენახვა"}
     </Button>
   );
 }

@@ -6,7 +6,7 @@ import fs from "fs/promises";
 import { notFound, redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
-const fileSchema = z.instanceof(File, { message: "Required" });
+const fileSchema = z.instanceof(File, { message: "აუცილებელია" });
 const imageSchema = fileSchema.refine(
   (file) => file.size === 0 || file.type.startsWith("image/")
 );
@@ -15,8 +15,8 @@ const addSchema = z.object({
   name: z.string().min(1),
   description: z.string().min(1),
   priceInCents: z.coerce.number().int().min(1),
-  file: fileSchema.refine((file) => file.size > 0, "Required"),
-  image: imageSchema.refine((file) => file.size > 0, "Required"),
+  file: fileSchema.refine((file) => file.size > 0, "აუცილებელია"),
+  image: imageSchema.refine((file) => file.size > 0, "აუცილებელია"),
 });
 
 export async function addProduct(prevState: unknown, formData: FormData) {

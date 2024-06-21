@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { emailOrderHistory } from "@/actions/orders"
-import { Button } from "@/components/ui/button"
+import { emailOrderHistory } from "@/actions/orders";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,21 +9,21 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useFormState, useFormStatus } from "react-dom"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useFormState, useFormStatus } from "react-dom";
 
 export default function MyOrdersPage() {
-  const [data, action] = useFormState(emailOrderHistory, {})
+  const [data, action] = useFormState(emailOrderHistory, {});
   return (
     <form action={action} className="max-2-xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle>My Orders</CardTitle>
+          <CardTitle>ჩემი შესყიდვები</CardTitle>
           <CardDescription>
-            Enter your email and we will email you your order history and
-            download links
+            შეიყვანე შენი მეილი, რათა გამოგიგზავნოთ შესყიდვების ისტორია და
+            ჩამოტვირთოთ პროდუქტი.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -38,15 +38,15 @@ export default function MyOrdersPage() {
         </CardFooter>
       </Card>
     </form>
-  )
+  );
 }
 
 function SubmitButton() {
-  const { pending } = useFormStatus()
+  const { pending } = useFormStatus();
 
   return (
     <Button className="w-full" size="lg" disabled={pending} type="submit">
-      {pending ? "Sending..." : "Send"}
+      {pending ? "იგზავნება..." : "გაიგზავნა"}
     </Button>
-  )
+  );
 }
