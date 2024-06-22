@@ -1,5 +1,5 @@
 "use client";
-import { ProductCard } from "@/components/ProductCard";
+import { ProductCard, ProductCardSkeleton } from "@/components/ProductCard";
 import { useSearchContext } from "./SearchContextProvider";
 
 export default function ProductsSuspense({
@@ -23,9 +23,19 @@ export default function ProductsSuspense({
   );
 
   if (search) {
-    return filteredProducts.map((product) => (
-      <ProductCard key={product.id} {...product} />
-    ));
+    if (filteredProducts.length) {
+      return filteredProducts.map((product) => (
+        <ProductCard key={product.id} {...product} />
+      ));
+    } else {
+      return (
+        <>
+          <ProductCardSkeleton />
+          <ProductCardSkeleton />
+          <ProductCardSkeleton />
+        </>
+      );
+    }
   } else {
     return products.map((product) => (
       <ProductCard key={product.id} {...product} />
