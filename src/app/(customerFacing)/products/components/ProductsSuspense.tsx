@@ -23,12 +23,9 @@ export default function ProductsSuspense({
   );
 
   if (search) {
-    if (filteredProducts.length) {
-      return filteredProducts.map((product) => (
-        <ProductCard key={product.id} {...product} />
-      ));
-    } else {
-    }
+    return filteredProducts.map((product) => (
+      <ProductCard key={product.id} {...product} />
+    ));
   } else {
     return products.map((product) => (
       <ProductCard key={product.id} {...product} />
