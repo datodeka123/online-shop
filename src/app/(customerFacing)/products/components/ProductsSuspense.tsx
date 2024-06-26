@@ -19,7 +19,11 @@ export default function ProductsSuspense({
 }) {
   const { search } = useSearchContext();
   const filteredProducts = products.filter((product) =>
-    product.name.toUpperCase().includes(search.toUpperCase())
+    product.name
+      .toUpperCase()
+      .split(" ")
+      .join("")
+      .includes(search.toUpperCase().split(" ").join(""))
   );
 
   if (search) {
