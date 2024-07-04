@@ -21,9 +21,8 @@ export default function ProductsSuspense({
   const filteredProducts = products.filter((product) =>
     product.name
       .toUpperCase()
-      .split(" ")
-      .join("")
-      .includes(search.toUpperCase().split(" ").join(""))
+      .replace(/ /g, "")
+      .includes(search.toUpperCase().replace(/ /g, ""))
   );
 
   if (search) {

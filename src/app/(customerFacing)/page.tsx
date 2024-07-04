@@ -16,16 +16,20 @@ const getMostPopularProducts = cache(
     });
   },
   ["/", "getMostPopularProducts"],
-  { revalidate: 60 * 60 * 24 }
+  { revalidate: 30 }
 );
 
-const getNewestProducts = cache(() => {
-  return db.product.findMany({
-    where: { isAvailableForPurchase: true },
-    orderBy: { createdAt: "desc" },
-    take: 6,
-  });
-}, ["/", "getNewestProducts"]);
+const getNewestProducts = cache(
+  () => {
+    return db.product.findMany({
+      where: { isAvailableForPurchase: true },
+      orderBy: { createdAt: "desc" },
+      take: 6,
+    });
+  },
+  ["/", "getNewestProducts"],
+  { revalidate: 30 }
+);
 
 export default function HomePage() {
   return (
